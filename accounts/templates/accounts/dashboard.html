@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm mt-5 border-success">
+            <div class="card-header bg-success text-white text-center">
+                <h3 class="mb-0">Dashboard</h3>
+            </div>
+            <div class="card-body p-4 text-center">
+                <div class="display-1 text-success mb-3">📊</div>
+                <h4 class="card-title">¡Felicidades, <strong>{{ user.username }}</strong>!</h4>
+                <div class="alert alert-success">
+                    Tienes el permiso <code>accounts.can_view_dashboard</code> para ver esta página.
+                </div>
+                <p class="text-muted"><em>Vista renderizada vía: {{ via }}</em></p>
+
+                <div class="d-flex justify-content-center gap-2 flex-wrap mt-4">
+                    <a href="{% url 'accounts:profile' %}" class="btn btn-outline-primary">Perfil (CBV)</a>
+                    <a href="{% url 'accounts:dashboard' %}" class="btn btn-outline-success">Dashboard (CBV)</a>
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Inicio</a>
+                    <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

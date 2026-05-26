@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Seguridad Django{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <div class="card shadow-sm mt-5">
+            <div class="card-body p-5">
+                <h1 class="card-title mb-4">Sistema de Autenticación Django</h1>
+                <p class="card-text lead">
+                    Bienvenido al sistema de seguridad con Login/Logout, autorización y permisos.
+                </p>
+
+                {% if user.is_authenticated %}
+                    <div class="alert alert-success mt-4">
+                        Estás logueado como <strong>{{ user.username }}</strong>.
+                    </div>
+                    <div class="d-flex justify-content-center gap-2 flex-wrap mt-4">
+                        <a href="{% url 'accounts:profile' %}" class="btn btn-outline-primary">Perfil (CBV)</a>
+                        <a href="{% url 'accounts:profile-fbv' %}" class="btn btn-outline-primary">Perfil (FBV)</a>
+                        <a href="{% url 'accounts:dashboard' %}" class="btn btn-outline-success">Dashboard (CBV)</a>
+                        <a href="{% url 'accounts:dashboard-fbv' %}" class="btn btn-outline-success">Dashboard (FBV)</a>
+                        <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger">Cerrar sesión</a>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info mt-4">No has iniciado sesión.</div>
+                    <div class="d-flex justify-content-center gap-2 mt-4">
+                        <a href="{% url 'accounts:login' %}" class="btn btn-primary">Iniciar sesión</a>
+                        <a href="{% url 'accounts:signup' %}" class="btn btn-outline-secondary">Registrarse</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

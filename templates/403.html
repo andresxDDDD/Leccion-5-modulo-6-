@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Acceso Denegado{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+        <div class="card shadow-sm mt-5 border-danger">
+            <div class="card-body p-5">
+                <h1 class="display-1 text-danger">403</h1>
+                <h2 class="card-title text-danger">Acceso Denegado</h2>
+                <p class="card-text lead">No tienes los permisos necesarios para acceder a esta página.</p>
+                <p class="text-muted">Contacta al administrador si crees que esto es un error.</p>
+                <a href="{% url 'home' %}" class="btn btn-primary mt-3">Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

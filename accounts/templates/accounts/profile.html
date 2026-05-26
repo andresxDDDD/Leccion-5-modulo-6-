@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Perfil de Usuario{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm mt-5">
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="mb-0">Perfil de Usuario</h3>
+            </div>
+            <div class="card-body p-4 text-center">
+                <div class="display-1 text-primary mb-3">👤</div>
+                <h4 class="card-title">Bienvenido, <strong>{{ user.username }}</strong></h4>
+                <p class="card-text">Email: {{ user.email|default:"No registrado" }}</p>
+                <p class="text-muted"><em>Vista renderizada vía: {{ via }}</em></p>
+
+                <div class="d-flex justify-content-center gap-2 flex-wrap mt-4">
+                    <a href="{% url 'accounts:profile' %}" class="btn btn-outline-primary">Perfil (CBV)</a>
+                    <a href="{% url 'accounts:profile-fbv' %}" class="btn btn-outline-primary">Perfil (FBV)</a>
+                    <a href="{% url 'accounts:dashboard' %}" class="btn btn-outline-success">Dashboard (CBV)</a>
+                    <a href="{% url 'accounts:dashboard-fbv' %}" class="btn btn-outline-success">Dashboard (FBV)</a>
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Inicio</a>
+                    <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
